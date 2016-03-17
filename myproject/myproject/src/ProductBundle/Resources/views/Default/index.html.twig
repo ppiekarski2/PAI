@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<table border=1>
+		<tr><th>Nazwa</th><th>Cena</th><th>Opis</th></tr>
+		{% for p in products %}
+			<tr>
+				<td>{{ p.name }}</td>
+				<td>{{ p.price }}</td>
+				<td>{{ p.description }}</td>
+				<td><a href="{{ path('product_edit', {'id' : p.id} ) }}">Edycja</a></td>
+				<td><a href="{{ path('product_delete', {'id':p.id} ) }}">Usuń</a></td>
+			</tr>
+		{% endfor %}
+	<table>
+	<a href="{{ path('product_add') }}">Dodaj pozycję</a>
+{% endblock %}
